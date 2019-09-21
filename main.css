@@ -1,0 +1,10 @@
+.time {
+    width: 80vw;
+    height: 70vh;
+    border: 1px solid black;
+    position: fixed;
+    left: 10vw;top: 15vh;
+    text-align: center;
+    font-size: 30vw;
+    font-family: sans-serif;
+}

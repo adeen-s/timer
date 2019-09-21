@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Timer | Devfest Indore</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div class="controls" id="controls">
+            <p>Press space to show or hide this menu <br /><br />Enter minutes</p>
+            <input type="number" name="minutes" value="30" id="minutes">
+            <button type="button" name="button" id="startbutton">Start Timer</button>
+            <br />
+            <button type="button" name="button" id="stopbutton" style="display: none;">Stop Timer</button>
+        </div>
+        <span id="time" class="time">30:00</span>
+        <script type="text/javascript">
+            var interval;
+            function startTimer(duration, display) {
+                var timer = duration, minutes, seconds;
+                interval = setInterval(function () {
+                    minutes = parseInt(timer / 60, 10);
+                    seconds = parseInt(timer % 60, 10);
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+                    display.textContent = minutes + ":" + seconds;
+
+                    if (timer < 120) {
+                        document.body.style.backgroundColor = "#FF0000";
+                        document.getElementById('time').style.color = "#FFFFFF";
+                        document.getElementById('time').style.borderColor = "#FFFFFF";
+                    }
+
+                    if (--timer < 0) {
+                        timer = duration;
+                    }
+                }, 1000);
+            }
+
+            document.getElementById('startbutton').onclick = function () {
+                document.body.style.backgroundColor = "#FFFFFF";
+                document.getElementById('time').style.color = "#000000"
+                document.getElementById('time').style.borderColor = "#000000";
+                document.getElementById('startbutton').style.display = "none";
+                document.getElementById('stopbutton').style.display = "block";
+                var minutes = 60 * document.getElementById('minutes').value, display = document.querySelector('#time');
+                startTimer(minutes, display);
+            };
+            document.getElementById('stopbutton').onclick = function () {
+                document.getElementById('stopbutton').style.display = "none";
+                document.getElementById('startbutton').style.display = "block";
+                clearInterval(interval);
+            }
+            document.addEventListener("keypress", function onEvent(event) {
+                console.log(event.key);
+                if (event.key === " ") {
+                    document.getElementById('controls').style.display = document.getElementById('controls').style.display == "none" ? "block" : "none";
+                }
+            });
+        </script>
+    </body>
+</html>
