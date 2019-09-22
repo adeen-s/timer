@@ -3,8 +3,20 @@
     height: 70vh;
     border: 1px solid black;
     position: fixed;
-    left: 10vw;top: 15vh;
+    left: 10vw;
+    top: 15vh;
     text-align: center;
     font-size: 30vw;
     font-family: sans-serif;
+    z-index: 1;
+}
+
+.gif {
+    display: none;
+    width: 96vw;
+    height: 96vh;
+    position fixed;
+    left: 4vw;
+    top: 2vh;
+    z-index: 10;
 }

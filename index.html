@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
+        <img class="gif" id="gif" src="giphy.webp" alt="Time up">
         <div class="controls" id="controls">
             <p>Press space to show or hide this menu <br /><br />Enter minutes</p>
             <input type="number" name="minutes" value="30" id="minutes">
@@ -32,7 +33,8 @@
                     }
 
                     if (--timer < 0) {
-                        timer = duration;
+                        timer = 0;
+                        document.getElementById('gif').style.display = "block";
                     }
                 }, 1000);
             }
