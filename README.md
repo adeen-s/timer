@@ -1,4 +1,4 @@
-# Timer for Conerence Speakers 
+# Timer for Conference Speakers 
 
 A very very exceedingly simple timer app for speakers to keep track of their allotted time at events where they are speaking.
 
